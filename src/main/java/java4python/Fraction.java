@@ -50,4 +50,24 @@ public class Fraction {
         }
         return n;
     }
+
+    public String toString() {
+        return this.numerator.toString() + "/" + this.denominator.toString();
+    }
+
+    public Boolean equals(Fraction other) {
+        Integer num1 = this.getNumerator() * other.getDenominator();
+        Integer num2 = other.getNumerator() * this.getDenominator();
+        return num1.equals(num2);
+    }
+
+    public static void main(String[] args) {
+        Fraction f1 = new Fraction(100, 200);
+        Fraction f2 = new Fraction(1, 2);
+        if (f1.equals(f2)) {
+            System.out.println("Equal objects");
+        } else {
+            System.out.println("Different objects");
+        }
+    }
 }
