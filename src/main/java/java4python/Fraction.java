@@ -1,6 +1,6 @@
 package java4python;
 
-public class Fraction {
+public class Fraction extends Number implements Comparable<Fraction> {
     private Integer numerator;
     private Integer denominator;
 
@@ -12,6 +12,22 @@ public class Fraction {
     public Fraction(Integer numerator) {
         this.numerator = numerator;
         this.denominator = 1;
+    }
+
+    public int intValue() {
+        return this.numerator.intValue() / this.denominator.intValue();
+    }
+
+    public long longValue() {
+        return this.numerator.longValue() / this.denominator.longValue();
+    }
+
+    public float floatValue() {
+        return this.numerator.floatValue() / this.denominator.floatValue();
+    }
+
+    public double doubleValue() {
+        return this.numerator.doubleValue() / this.denominator.doubleValue();
     }
 
     public Integer getNumerator() {
@@ -59,6 +75,12 @@ public class Fraction {
         Integer num1 = this.getNumerator() * other.getDenominator();
         Integer num2 = other.getNumerator() * this.getDenominator();
         return num1.equals(num2);
+    }
+
+    public int compareTo(Fraction other) {
+        Integer num1 = this.getNumerator() * other.getDenominator();
+        Integer num2 = other.getNumerator() * this.getDenominator();
+        return num1 - num2;
     }
 
     public static void main(String[] args) {
